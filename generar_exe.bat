@@ -31,7 +31,6 @@ if %errorlevel% equ 0 (
         --clean ^
         --noconfirm ^
         --optimize=2 ^
-        --strip ^
         --add-data "plantas.json;." ^
         --icon="img.ico" ^
         --name "flora" ^
@@ -40,41 +39,45 @@ if %errorlevel% equ 0 (
         main.py
     if %errorlevel% neq 0 goto :error
     echo.
-    echo [4/5] Moviendo ejecutable a carpeta flora...
-    if not exist "flora" mkdir flora
+    echo [4/6] Preparando carpeta del juego...
+    if not exist "LUDUS HERBARUM" mkdir "LUDUS HERBARUM"
     if exist "flora_dist\flora.exe" (
-        move /Y "flora_dist\flora.exe" "flora\flora.exe"
-        rmdir /s /q flora_dist
+        move /Y "flora_dist\flora.exe" "LUDUS HERBARUM\flora.exe"
     ) else (
         echo ERROR: No se genero el ejecutable
         goto :error
     )
     echo.
-    echo [5/6] Copiando instrucciones y documentacion...
-    if exist "flora\" (
-        copy "plantas.json" "flora\" >nul 2>&1
-        copy "INSTRUCCIONES_PRIMERA_VEZ.txt" "flora\" >nul 2>&1
-        copy "SOLUCIONES_ANTIVIRUS.md" "flora\" >nul 2>&1
-        (
-            echo ====================================
-            echo FLORA - JOC DE PLANTES
-            echo Alejandro Exposito Navarro
-            echo ====================================
-            echo.
-            echo 1. Llegeix INSTRUCCIONS_PRIMERA_VEZ.txt
-            echo 2. Executa flora.exe
-            echo 3. Gaudeix del joc!
-            echo.
-            echo Lee INSTRUCCIONS_PRIMERA_VEZ.txt
-            echo antes de ejecutar por primera vez
-            echo ====================================
-        ) > "flora\LLEGEIX-ME.txt"
-        echo Instrucciones copiadas correctamente
-
+    echo [5/6] Copiando archivos necesarios...
+    copy "plantas.json" "LUDUS HERBARUM\" >nul 2>&1
+    copy "INSTRUCCIONES_PRIMERA_VEZ.txt" "LUDUS HERBARUM\" >nul 2>&1
+    copy "SOLUCIONES_ANTIVIRUS.md" "LUDUS HERBARUM\" >nul 2>&1
+    (
+        echo ====================================
+        echo LUDUS HERBARUM - JOC DE PLANTES
+        echo Alejandro Exposito Navarro
+        echo ====================================
         echo.
-        echo [6/6] Creando archivo ZIP para distribucion...
-        powershell -command "try { Compress-Archive -Path 'flora\*' -DestinationPath 'JuegoPlantas.zip' -Force; Write-Host '✓ ZIP creado: JuegoPlantas.zip' } catch { Write-Host 'Error al crear ZIP, pero la carpeta flora está lista' }"
-    )
+        echo 1. Llegeix INSTRUCCIONS_PRIMERA_VEZ.txt
+        echo 2. Executa flora.exe
+        echo 3. Gaudeix del joc!
+        echo.
+        echo Lee INSTRUCCIONS_PRIMERA_VEZ.txt
+        echo antes de ejecutar por primera vez
+        echo ====================================
+    ) > "LUDUS HERBARUM\LLEGEIX-ME.txt"
+    echo Archivos copiados correctamente
+    echo.
+    echo [6/6] Creando archivo ZIP en el escritorio...
+    powershell -command "try { Compress-Archive -Path 'LUDUS HERBARUM' -DestinationPath '%USERPROFILE%\Desktop\LUDUS HERBARUM.zip' -Force; Write-Host '✓ ZIP creado en el escritorio: LUDUS HERBARUM.zip' } catch { Write-Host 'Error al crear ZIP en el escritorio' }"
+    echo.
+    echo Limpiando archivos temporales...
+    rmdir /s /q "LUDUS HERBARUM" >nul 2>&1
+    rmdir /s /q flora_dist >nul 2>&1
+    rmdir /s /q build >nul 2>&1
+    rmdir /s /q __pycache__ >nul 2>&1
+    del flora.spec >nul 2>&1
+    echo Limpieza completada
     goto :success
 )
 
@@ -96,7 +99,6 @@ if not "%PYTHON_EXE%"=="" (
         --clean ^
         --noconfirm ^
         --optimize=2 ^
-        --strip ^
         --add-data "plantas.json;." ^
         --icon="img.ico" ^
         --name "flora" ^
@@ -105,48 +107,52 @@ if not "%PYTHON_EXE%"=="" (
         main.py
     if %errorlevel% neq 0 goto :error
     echo.
-    echo [4/5] Moviendo ejecutable a carpeta flora...
-    if not exist "flora" mkdir flora
+    echo [4/6] Preparando carpeta del juego...
+    if not exist "LUDUS HERBARUM" mkdir "LUDUS HERBARUM"
     if exist "flora_dist\flora.exe" (
-        move /Y "flora_dist\flora.exe" "flora\flora.exe"
-        rmdir /s /q flora_dist
+        move /Y "flora_dist\flora.exe" "LUDUS HERBARUM\flora.exe"
     ) else (
         echo ERROR: No se genero el ejecutable
         goto :error
     )
     echo.
-    echo [5/6] Copiando instrucciones y documentacion...
-    if exist "flora\" (
-        copy "plantas.json" "flora\" >nul 2>&1
-        copy "INSTRUCCIONES_PRIMERA_VEZ.txt" "flora\" >nul 2>&1
-        copy "SOLUCIONES_ANTIVIRUS.md" "flora\" >nul 2>&1
-        (
-            echo ====================================
-            echo FLORA - JOC DE PLANTES
-            echo Alejandro Exposito Navarro
-            echo ====================================
-            echo.
-            echo 1. Llegeix INSTRUCCIONS_PRIMERA_VEZ.txt
-            echo 2. Executa flora.exe
-            echo 3. Gaudeix del joc!
-            echo.
-            echo Lee INSTRUCCIONS_PRIMERA_VEZ.txt
-            echo antes de ejecutar por primera vez
-            echo ====================================
-        ) > "flora\LLEGEIX-ME.txt"
-        echo Instrucciones copiadas correctamente
-
+    echo [5/6] Copiando archivos necesarios...
+    copy "plantas.json" "LUDUS HERBARUM\" >nul 2>&1
+    copy "INSTRUCCIONES_PRIMERA_VEZ.txt" "LUDUS HERBARUM\" >nul 2>&1
+    copy "SOLUCIONES_ANTIVIRUS.md" "LUDUS HERBARUM\" >nul 2>&1
+    (
+        echo ====================================
+        echo LUDUS HERBARUM - JOC DE PLANTES
+        echo Alejandro Exposito Navarro
+        echo ====================================
         echo.
-        echo [6/6] Creando archivo ZIP para distribucion...
-        powershell -command "try { Compress-Archive -Path 'flora\*' -DestinationPath 'JuegoPlantas.zip' -Force; Write-Host '✓ ZIP creado: JuegoPlantas.zip' } catch { Write-Host 'Error al crear ZIP, pero la carpeta flora está lista' }"
-    )
+        echo 1. Llegeix INSTRUCCIONS_PRIMERA_VEZ.txt
+        echo 2. Executa flora.exe
+        echo 3. Gaudeix del joc!
+        echo.
+        echo Lee INSTRUCCIONS_PRIMERA_VEZ.txt
+        echo antes de ejecutar por primera vez
+        echo ====================================
+    ) > "LUDUS HERBARUM\LLEGEIX-ME.txt"
+    echo Archivos copiados correctamente
+    echo.
+    echo [6/6] Creando archivo ZIP en el escritorio...
+    powershell -command "try { Compress-Archive -Path 'LUDUS HERBARUM' -DestinationPath '%USERPROFILE%\Desktop\LUDUS HERBARUM.zip' -Force; Write-Host '✓ ZIP creado en el escritorio: LUDUS HERBARUM.zip' } catch { Write-Host 'Error al crear ZIP en el escritorio' }"
+    echo.
+    echo Limpiando archivos temporales...
+    rmdir /s /q "LUDUS HERBARUM" >nul 2>&1
+    rmdir /s /q flora_dist >nul 2>&1
+    rmdir /s /q build >nul 2>&1
+    rmdir /s /q __pycache__ >nul 2>&1
+    del flora.spec >nul 2>&1
+    echo Limpieza completada
     goto :success
 )
 
 REM Si no se encuentra Python
 echo No se encontro Python instalado.
 echo Descarga e instala Python desde: https://www.python.org/downloads/
-echo Asegurate de marcar "Add Python to PATH" durante la instalacion.
+echo Asegurate de marcar "Add Python to PATH" durante la instalación.
 pause
 goto :end
 
@@ -172,26 +178,25 @@ echo ====================================
 echo Ejecutable generado exitosamente!
 echo ====================================
 echo.
-echo Ubicacion: flora\flora.exe
+echo Archivo generado: LUDUS HERBARUM.zip (en el Escritorio)
 echo.
-echo Contenido del paquete:
-echo - flora.exe (programa principal con icono personalizado)
-echo - plantas.json (base de datos de plantas)
-echo - INSTRUCCIONES_PRIMERA_VEZ.txt
-echo - LLEGEIX-ME.txt
-echo - SOLUCIONES_ANTIVIRUS.md
-echo - JuegoPlantas.zip (paquete completo para distribuir)
+echo Contenido del ZIP:
+echo LUDUS HERBARUM/
+echo   ├─ flora.exe (programa principal con icono personalizado)
+echo   ├─ plantas.json (base de datos de plantas)
+echo   ├─ INSTRUCCIONES_PRIMERA_VEZ.txt
+echo   ├─ LLEGEIX-ME.txt
+echo   └─ SOLUCIONES_ANTIVIRUS.md
 echo.
 echo IMPORTANTE - Alertas de Antivirus:
-echo - El ejecutable NO esta firmado digitalmente (certificado cuesta 300 EUR/ano)
+echo - El ejecutable NO esta firmado digitalmente (está carísimo hermano xd)
 echo - Windows Defender puede mostrar una alerta (ES NORMAL)
-echo - Lee SOLUCIONES_ANTIVIRUS.md para mas informacion
+echo - Lee SOLUCIONES_ANTIVIRUS.md para mas información
 echo.
 echo Para distribuir:
-echo 1. FACIL: Comparte el archivo JuegoPlantas.zip (contiene todo)
-echo 2. ALTERNATIVA: Copia la carpeta completa "flora\" a un pendrive
-echo 3. En el PC destino: Lee INSTRUCCIONES_PRIMERA_VEZ.txt
-echo 4. Primera ejecucion: "Mas informacion" -^> "Ejecutar de todas formas"
+echo 1. Comparte el archivo LUDUS HERBARUM.zip desde tu Escritorio
+echo 2. En el PC destino: Extrae el ZIP y lee INSTRUCCIONES_PRIMERA_VEZ.txt
+echo 3. Primera ejecución: "Mas información" -^> "Ejecutar de todas formas"
 echo.
 pause
 

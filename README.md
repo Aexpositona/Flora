@@ -21,7 +21,7 @@
 Este ejecutable puede generar **falsos positivos** en Windows Defender. Esto es **completamente normal** en aplicaciones Python compiladas con PyInstaller.
 
 **¿Por qué pasa esto?**
-- Las aplicaciones Python compiladas no tienen certificado digital (cuesta 300€/año)
+- Las aplicaciones Python compiladas no tienen certificado digital (esta carísimo hermano xd)
 - Es un comportamiento estándar de Windows con software nuevo
 - **El código fuente está completamente visible** en este repositorio
 
@@ -43,7 +43,8 @@ Este ejecutable puede generar **falsos positivos** en Windows Defender. Esto es 
 1. Descarga y prueba primero en tu equipo
 2. Distribuye el ZIP a estudiantes
 3. Explica que es normal la alerta de Windows (falso positivo)
-4. Lee `INSTRUCCIONES_PROFESORES.txt` incluido en el paquete
+4. Lee `README.txt` (en catalán) incluido en el paquete
+5. Disponible documentación completa en `INSTRUCCIONES_PRIMERA_VEZ.txt`
 
 ## 🛠️ Para Desarrolladores
 
@@ -56,53 +57,73 @@ Este ejecutable puede generar **falsos positivos** en Windows Defender. Esto es 
 ```bash
 git clone https://github.com/tu-usuario/flora-game.git
 cd flora-game
-pip install pillow
+pip install -r requirements.txt
 python main.py
 ```
 
 ### Compilar ejecutable
 ```bash
-# Opción 1: Script automático (Windows)
-generar_exe_educativo.bat
+# Opción 1: Script automático (al escritorio) - RECOMENDADO
+generar_exe.bat
 
 # Opción 2: Manual con PyInstaller
-pip install pyinstaller
-pyinstaller --onefile --windowed --icon=img.ico main.py
+pip install pyinstaller pillow
+python crear_icono.py
+pyinstaller --onefile --windowed --icon=img.ico --add-data "plantas.json;." main.py
 ```
 
 ## 📁 Estructura del Proyecto
 
 ```
-flora-game/
-├── src/                          # 📂 Código fuente principal
-│   ├── controllers/              # 🎮 Controladores (lógica de negocio)
-│   │   ├── app_controller.py     # Controlador principal
-│   │   ├── juego_controller.py   # Lógica del juego
-│   │   ├── anadir_controller.py  # Gestión de plantas
-│   │   └── editar_controller.py  # Edición de plantas
-│   ├── models/                   # 📊 Modelos de datos
-│   │   ├── planta.py            # Clase Planta
-│   │   └── planta_repository.py  # Persistencia de datos
-│   ├── views/                    # 🖼️ Interfaces de usuario
-│   │   ├── pantalla_inicio.py    # Pantalla principal
-│   │   ├── pantalla_modos.py     # Selección de modos
-│   │   ├── pantalla_juego.py     # Interfaz del juego
-│   │   ├── pantalla_anadir.py    # Añadir plantas
-│   │   ├── pantalla_editar.py    # Editar plantas
-│   │   ├── pantalla_resultado.py # Resultados del juego
-│   │   └── components/           # Componentes reutilizables
-│   │       └── rounded_button.py # Botones personalizados
-│   └── utils/                    # 🔧 Utilidades
-│       └── file_manager.py       # Gestión de archivos
-├── main.py                       # 🚀 Archivo principal de ejecución
-├── plantas.json                  # 🌱 Base de datos de plantas
-├── img.png                       # 🎨 Icono original
-├── crear_icono.py               # 🔄 Convertir PNG a ICO
-├── imagenes/                     # 📸 Fotos de las plantas
-├── generar_exe.bat              # ⚙️ Compilación básica
-├── generar_exe_educativo.bat    # 🎓 Compilación con documentación
-├── requirements.txt             # 📋 Dependencias Python
-└── README.md                    # 📖 Este archivo
+Floraa/
+├── .git/                            # 📂 Control de versiones Git
+├── .gitignore                       # 🚫 Archivos ignorados por Git
+├── .idea/                           # 💡 Configuración de PyCharm/IntelliJ
+├── src/                             # 📂 Código fuente principal
+│   ├── __init__.py                  # 🐍 Inicializador de paquete Python
+│   ├── controllers/                 # 🎮 Controladores (lógica de negocio)
+│   │   ├── __init__.py             # 🐍 Inicializador del módulo
+│   │   ├── app_controller.py        # 🏗️ Controlador principal de la aplicación
+│   │   ├── juego_controller.py      # 🎯 Lógica del juego y puntuación
+│   │   ├── anadir_controller.py     # ➕ Gestión para añadir plantas
+│   │   └── editar_controller.py     # ✏️ Edición de plantas existentes
+│   ├── models/                      # 📊 Modelos de datos
+│   │   ├── __init__.py             # 🐍 Inicializador del módulo
+│   │   ├── planta.py               # 🌿 Clase Planta (entidad principal)
+│   │   └── planta_repository.py    # 💾 Persistencia y gestión de datos
+│   ├── views/                       # 🖼️ Interfaces de usuario (tkinter)
+│   │   ├── __init__.py             # 🐍 Inicializador del módulo
+│   │   ├── pantalla_inicio.py       # 🏠 Pantalla principal del menú
+│   │   ├── pantalla_modos.py        # 🎮 Selección de modos de juego
+│   │   ├── pantalla_juego.py        # 🎲 Interfaz principal del juego
+│   │   ├── pantalla_anadir.py       # ➕ Formulario para añadir plantas
+│   │   ├── pantalla_editar.py       # ✏️ Interfaz de edición
+│   │   ├── pantalla_resultado.py    # 🏆 Pantalla de resultados y puntuación
+│   │   └── components/              # 🧩 Componentes reutilizables
+│   │       ├── __init__.py         # 🐍 Inicializador del módulo
+│   │       └── rounded_button.py    # 🔘 Botones personalizados con estilo
+│   └── utils/                       # 🔧 Utilidades y herramientas
+│       ├── __init__.py             # 🐍 Inicializador del módulo
+│       └── file_manager.py         # 📁 Gestión de archivos e imágenes
+├── main.py                          # 🚀 Archivo principal de ejecución
+├── plantas.json                     # 🌱 Base de datos de plantas (JSON)
+├── img.png                          # 🎨 Icono original (formato PNG)
+├── img.ico                          # 🔗 Icono convertido (para ejecutable)
+├── crear_icono.py                   # 🔄 Script para convertir PNG a ICO
+├── generar_exe.bat                  # ⚙️ Script de compilación automática
+├── version_info.txt                 # 📋 Metadatos del ejecutable Windows
+├── requirements.txt                 # 📦 Dependencias de Python
+├── INSTRUCCIONES_PRIMERA_VEZ.txt    # 📖 Guía para usuarios finales
+├── SOLUCIONES_ANTIVIRUS.md          # 🛡️ Soluciones para alertas de seguridad
+├── COMO_GENERAR_EXE.md              # 🔧 Documentación para desarrolladores
+├── LICENSE                          # ⚖️ Licencia MIT del proyecto
+├── releases/                        # 📦 Documentación de versiones
+│   └── README.md                    # 📚 Información sobre releases
+├── README_CA.md                     # 📖 Documentación en catalán
+└── README.md                        # 📖 Este archivo de documentación
+
+Archivos generados:
+└── ~/Desktop/FloraGame.zip          # 📦 Paquete final (generado en el escritorio)
 ```
 
 ## 🎓 Uso Educativo
