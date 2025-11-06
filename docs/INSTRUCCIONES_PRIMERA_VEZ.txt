@@ -1,0 +1,32 @@
+====================================
+LUDUS HERBARUM - PRIMERA EJECUCIÓN
+====================================
+
+¡Bienvenido al Juego de Plantas!
+
+IMPORTANTE - ALERTA DE SEGURIDAD DE WINDOWS:
+===========================================
+
+Al ejecutar flora.exe por primera vez, Windows Defender mostrará
+una alerta de seguridad. Esto es NORMAL y esperado.
+
+¿POR QUÉ APARECE LA ALERTA?
+- El ejecutable no tiene certificado digital (Es carísimo hermano xd)
+- Windows no reconoce el programa como "conocido"
+- Es un FALSO POSITIVO - el programa es 100% seguro
+
+CÓMO EJECUTAR EL PROGRAMA:
+=========================
+
+1. Haz doble clic en flora.exe
+2. Si aparece "Windows protegió tu PC":
+   - Haz clic en "Más información"
+   - Haz clic en "Ejecutar de todas formas"
+3. ¡Disfruta del juego!
+
+SOLUCIÓN DE PROBLEMAS:
+====================
+
+Si tienes problemas, consulta SOLUCIONES_ANTIVIRUS.md
+
+¡Que disfrutes aprendiendo sobre plantas!

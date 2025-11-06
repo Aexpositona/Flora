@@ -1,75 +1,141 @@
-# 🌱 Flora Game - Juego Educativo de Plantas
+# 🌱 LUDUS HERBARUM - Joc Educatiu de Plantes
 
-[![Licencia: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Educativo](https://img.shields.io/badge/Tipo-Educativo-green.svg)]()
+[![Licència: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Educatiu](https://img.shields.io/badge/Tipus-Educatiu-green.svg)]()
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)]()
 
-## 📚 Descripción
+## 📚 Descripció
 
-**Flora Game** es una aplicación educativa opensource diseñada para ayudar a estudiantes de botánica a aprender nombres científicos y comunes de plantas de forma interactiva y divertida.
+**LUDUS HERBARUM** és una aplicació educativa opensource dissenyada per ajudar a estudiants de botànica a aprendre noms científics i comuns de plantes de forma interactiva i divertida.
 
-### ✨ Características
-- 🎮 **Múltiples modos de juego**: Partida rápida, todas las plantas, últimas añadidas
-- 🖼️ **Reconocimiento visual**: Identifica plantas por imagen
-- 📝 **Gestión completa**: Añadir, editar y eliminar plantas
-- 🎯 **Educativo**: Perfecto para aulas y estudio personal
-- 💾 **Datos locales**: Sin conexión a internet requerida
+### ✨ Característiques
+- 🎮 **Múltiples modes de joc**: Partida ràpida, totes les plantes, últimes afegides
+- 🖼️ **Reconeixement visual**: Identifica plantes per imatge
+- 📝 **Gestió completa**: Afegir, editar i eliminar plantes
+- 🎯 **Educatiu**: Perfect per aules i estudi personal
+- 💾 **Dades locals**: Sense connexió a internet requerida
 
-## 🔒 Seguridad y Confianza
+## 🔒 Seguretat i Confiança
 
-### ⚠️ Sobre alertas de antivirus
-Este ejecutable puede generar **falsos positivos** en Windows Defender. Esto es **completamente normal** en aplicaciones Python compiladas con PyInstaller.
+### ⚠️ Sobre alertes d'antivirus
+Aquest executable pot generar **falsos positius** a Windows Defender. Això és **completament normal** en aplicacions Python compilades amb PyInstaller.
 
-**¿Por qué pasa esto?**
-- Las aplicaciones Python compiladas no tienen certificado digital (esta carísimo hermano xd)
-- Es un comportamiento estándar de Windows con software nuevo
-- **El código fuente está completamente visible** en este repositorio
+**Per què passa això?**
+- Les aplicacions Python compilades no tenen certificat digital (està caríssim germà xd)
+- És un comportament estàndard de Windows amb programari nou
+- **El codi font està completament visible** en aquest repositori
 
-### ✅ Verificación de seguridad
-- **Código 100% opensource**: Todo el código está visible aquí
-- **Sin conexiones externas**: No envía datos a ningún servidor
-- **Hash SHA256**: Cada release incluye hash para verificación
-- **Propósito educativo**: Desarrollado para uso en centros educativos
+### ✅ Verificació de seguretat
+- **Codi 100% opensource**: Tot el codi està visible aquí
+- **Sense connexions externes**: No envia dades a cap servidor
+- **Hash SHA256**: Cada release inclou hash per verificació
+- **Propòsit educatiu**: Desenvolupat per ús en centres educatius
 
-## 🚀 Instalación y Uso
+## 🚀 Instal·lació i Ús
 
-### Para Estudiantes
-1. Descarga el archivo `JuegoPlantas.zip` desde la sección **Releases** de GitHub
-2. Descomprime en cualquier carpeta
-3. Ejecuta `flora.exe`
-4. Si Windows pregunta: **"Más información" → "Ejecutar de todas formas"**
+### Per Estudiants
+1. Descarrega l'arxiu `LUDUS HERBARUM.zip` des de la secció **Releases** de GitHub
+2. Descomprimeix en qualsevol carpeta
+3. Executa `flora.exe`
+4. Si Windows pregunta: **"Més informació" → "Executar de totes maneres"**
 
-### Para Profesores
-1. Descarga y prueba primero en tu equipo
-2. Distribuye el ZIP a estudiantes
-3. Explica que es normal la alerta de Windows (falso positivo)
-4. Lee `README.txt` (en catalán) incluido en el paquete
-5. Disponible documentación completa en `INSTRUCCIONES_PRIMERA_VEZ.txt`
+### Per Professors
+1. Descarrega i prova primer al teu equip
+2. Distribueix el ZIP als estudiants
+3. Explica que és normal l'alerta de Windows (fals positiu)
+4. Llegeix `LLEGEIX-ME.txt` (en català) inclòs al paquet
+5. Disponible documentació completa a `INSTRUCCIONS_PRIMERA_VEZ.txt`
 
-## 🛠️ Para Desarrolladores
+## 🛠️ Per Desenvolupadors
 
-### Requisitos
+### Requisits
 - Python 3.9+
-- tkinter (incluido en Python)
-- Pillow para imágenes
+- tkinter (inclòs a Python)
+- Pillow per imatges
 
-### Ejecutar desde código
+### Executar des del codi
 ```bash
-git clone https://github.com/tu-usuario/flora-game.git
-cd flora-game
+git clone https://github.com/Aexpositona/Flora.git
+cd Flora
 pip install -r requirements.txt
-python main.py
+python src/main.py
 ```
 
-### Compilar ejecutable
+### Compilar executable
 ```bash
-# Opción 1: Script automático (al escritorio) - RECOMENDADO
-generar_exe.bat
+# Opció 1: Script automàtic (a l'escriptori) - RECOMANAT
+build/generar_exe.bat
 
-# Opción 2: Manual con PyInstaller
+# Opció 2: Manual amb PyInstaller
 pip install pyinstaller pillow
-python crear_icono.py
-pyinstaller --onefile --windowed --icon=img.ico --add-data "plantas.json;." main.py
+python build/crear_icono.py
+pyinstaller --onefile --windowed --icon=assets/icons/img.ico --add-data "assets/data/plantas.json;." src/main.py
+```
+
+## 📁 Estructura del Projecte
+
+```
+LUDUS-HERBARUM/
+├── src/                    # Codi font
+│   ├── main.py            # Punt d'entrada
+│   ├── controllers/       # Lògica de control
+│   ├── models/           # Models de dades
+│   ├── views/            # Interfície d'usuari
+│   └── utils/            # Utilitats
+├── assets/               # Recursos
+│   ├── data/            # Dades del joc
+│   ├── images/          # Imatges
+│   └── icons/           # Icones
+├── docs/                # Documentació
+├── build/              # Scripts de compilació
+└── dist/              # Distribució
+```
+
+## 🎮 Com Jugar
+
+1. **Afegir plantes** - Gestiona la teva base de dades
+2. **Triar mode** - Diferents tipus de quiz
+3. **Jugar** - Respon preguntes sobre plantes
+4. **Veure resultats** - Revisa la teva puntuació
+
+## 🤝 Contribuir
+
+1. Fork el projecte
+2. Crea una branca feature (`git checkout -b feature/nova-funcionalitat`)
+3. Commit els teus canvis (`git commit -am 'Afegir nova funcionalitat'`)
+4. Push a la branca (`git push origin feature/nova-funcionalitat`)
+5. Obre un Pull Request
+
+## 📄 Llicència
+
+Aquest projecte està sota la Llicència MIT - veure [LICENSE](LICENSE) per detalls.
+
+## 👨‍💻 Autor
+
+**Alejandro Expósito Navarro**
+- GitHub: [@Aexpositona](https://github.com/Aexpositona)
+
+## 🙏 Agraïments
+
+- A tots els estudiants que usen l'aplicació
+- A la comunitat de Python per les eines
+- Als projectes opensource que van inspirar aquest treball
+
+---
+
+*Fet amb 💚 per la Yudi <3*
+python src/main.py
+```
+
+### Compilar executable
+```bash
+# Opció 1: Script automàtic (a l'escriptori) - RECOMANAT
+build/generar_exe.bat
+
+# Opció 2: Manual amb PyInstaller
+pip install pyinstaller pillow
+python build/crear_icono.py
+pyinstaller --onefile --windowed --icon=assets/icons/img.ico --add-data "assets/data/plantas.json;." src/main.py
 ```
 
 ## 📁 Estructura del Proyecto

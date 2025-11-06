@@ -1,18 +1,57 @@
+# Archivos de distribución y builds
+dist/
+build/build/
+*.spec
+*.exe
+*.zip
+
 # Python
 __pycache__/
 *.py[cod]
-build/
-dist/
-*.spec
+*$py.class
+*.so
 
-# Archivos de compilación
-flora.exe
-flora/
+# Entornos virtuales
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos temporales específicos del proyecto
 flora_dist/
-
-# Archivos temporales
+flora_temp/
+LUDUS HERBARUM/
 temp_hash.txt
+
+# Archivos antiguos (mantener durante transición)
+# crear_icono.py
+# generar_exe.bat
+# version_info.txt
+# plantas.json
+# img.png
+# img.ico
+# INSTRUCCIONES_PRIMERA_VEZ.txt
+# SOLUCIONES_ANTIVIRUS.md
+
+# Logs y cache
 *.log
+.cache
+.pytest_cache/
+.coverage
+htmlcov/
 
 # Carpetas de trabajo
 repo_basico/
