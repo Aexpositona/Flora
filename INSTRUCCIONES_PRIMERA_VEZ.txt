@@ -1,0 +1,45 @@
+====================================
+FLORA GAME - PRIMERA EJECUCIÓN
+====================================
+
+¡Bienvenido al Juego Flora!
+
+IMPORTANTE - ALERTA DE SEGURIDAD DE WINDOWS:
+===========================================
+
+Al ejecutar flora.exe por primera vez, Windows Defender mostrará
+una alerta de seguridad. Esto es NORMAL y esperado.
+
+¿POR QUÉ APARECE LA ALERTA?
+- El ejecutable no tiene certificado digital (Es carísimo hermano xd)
+- Windows no reconoce el programa como "conocido"
+- Es un FALSO POSITIVO - el programa es 100% seguro
+
+CÓMO EJECUTAR EL PROGRAMA:
+=========================
+
+1. Haz doble clic en flora.exe
+2. Windows mostrará: "Windows protegió tu PC"
+3. Haz clic en "Más información"
+4. Aparecerá el botón "Ejecutar de todas formas"
+5. Haz clic en "Ejecutar de todas formas"
+6. ¡El juego se iniciará!
+
+SOLO NECESITAS HACER ESTO LA PRIMERA VEZ.
+Las siguientes ejecuciones serán normales.
+
+SEGURIDAD:
+=========
+✓ Código fuente disponible públicamente
+✓ No se conecta a internet
+✓ No accede a datos personales
+✓ Desarrollado específicamente para educación
+✓ Sin malware, virus o código malicioso
+
+SOPORTE:
+=======
+Si tienes problemas:
+- Lee SOLUCIONES_ANTIVIRUS.md
+- Contacta con el desarrollador
+
+¡Disfruta aprendiendo sobre plantas!

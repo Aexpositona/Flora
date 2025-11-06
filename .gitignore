@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.spec
+
+# Archivos de compilación
+flora.exe
+flora/
+flora_dist/
+
+# Archivos temporales
+temp_hash.txt
+*.log
+
+# Carpetas de trabajo
+repo_basico/
+repositorio_github/
+github_release/
+
+# ZIP de distribución
+JuegoPlantas_*.zip
+
