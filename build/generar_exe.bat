@@ -46,8 +46,7 @@ if %errorlevel% equ 0 (
     echo [5/6] Preparando distribución...
     if not exist "dist\LUDUS HERBARUM" mkdir "dist\LUDUS HERBARUM"
     if exist "dist\temp\flora.exe" (
-        copy "dist\temp\flora.exe" "dist\LUDUS HE
-        RBARUM\" >nul
+        copy "dist\temp\flora.exe" "dist\LUDUS HERBARUM\" >nul
         copy "assets\data\plantas.json" "dist\LUDUS HERBARUM\" >nul
         copy "docs\INSTRUCCIONES_PRIMERA_VEZ.txt" "dist\LUDUS HERBARUM\" >nul
         copy "docs\SOLUCIONES_ANTIVIRUS.md" "dist\LUDUS HERBARUM\" >nul
@@ -80,8 +79,12 @@ if %errorlevel% equ 0 (
     rmdir /s /q "dist\LUDUS HERBARUM" >nul 2>&1
     rmdir /s /q "dist\temp" >nul 2>&1
     rmdir /s /q "build\build" >nul 2>&1
+    rmdir /s /q "build\flora" >nul 2>&1
+    rmdir /s /q "flora" >nul 2>&1
     rmdir /s /q "__pycache__" >nul 2>&1
+    rmdir /s /q "src\__pycache__" >nul 2>&1
     del "flora.spec" >nul 2>&1
+    del "build\flora.spec" >nul 2>&1
     echo Limpieza completada
 
     goto :success
@@ -145,8 +148,12 @@ if not "%PYTHON_EXE%"=="" (
     rmdir /s /q "dist\LUDUS HERBARUM" >nul 2>&1
     rmdir /s /q "dist\temp" >nul 2>&1
     rmdir /s /q "build\build" >nul 2>&1
+    rmdir /s /q "build\flora" >nul 2>&1
+    rmdir /s /q "flora" >nul 2>&1
     rmdir /s /q "__pycache__" >nul 2>&1
+    rmdir /s /q "src\__pycache__" >nul 2>&1
     del "flora.spec" >nul 2>&1
+    del "build\flora.spec" >nul 2>&1
     echo Limpieza completada
 
     goto :success
